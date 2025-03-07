@@ -1,0 +1,8 @@
+flask
+prometheus_client
+requests
+PyYAML
+joblib
+apscheduler
+sqlalchemy
+scikit-learn

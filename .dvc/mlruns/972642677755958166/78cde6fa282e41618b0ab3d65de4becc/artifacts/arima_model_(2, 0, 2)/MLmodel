@@ -1,0 +1,18 @@
+artifact_path: arima_model_(2, 0, 2)
+flavors:
+  python_function:
+    data: model.statsmodels
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.statsmodels
+    python_version: 3.12.5
+  statsmodels:
+    code: null
+    data: model.statsmodels
+    statsmodels_version: 0.14.4
+mlflow_version: 2.19.0
+model_size_bytes: 53093
+model_uuid: f78ff96b8c404821938cd5f605641e52
+run_id: 78cde6fa282e41618b0ab3d65de4becc
+utc_time_created: '2024-12-12 17:15:32.370119'

@@ -1,0 +1,6 @@
+artifact_location: file:///C:/MLOPS_PROJECT/course-project-AaimlikAbbasi/mlruns/972642677755958166
+creation_time: 1734023573366
+experiment_id: '972642677755958166'
+last_update_time: 1734023573366
+lifecycle_stage: active
+name: ARIMA_Hyperparameter_Tuning

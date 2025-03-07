@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/MLOPS_PROJECT/course-project-AaimlikAbbasi/mlruns/0/75a2b74b23cb411890b1ac834b45bf25/artifacts
+end_time: 1734022444305
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 75a2b74b23cb411890b1ac834b45bf25
+run_name: LSTM_Model
+run_uuid: 75a2b74b23cb411890b1ac834b45bf25
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734022416983
+status: 3
+tags: []
+user_id: HP

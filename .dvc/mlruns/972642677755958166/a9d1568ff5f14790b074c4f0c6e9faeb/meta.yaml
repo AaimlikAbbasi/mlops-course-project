@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/MLOPS_PROJECT/course-project-AaimlikAbbasi/mlruns/972642677755958166/a9d1568ff5f14790b074c4f0c6e9faeb/artifacts
+end_time: 1734023785343
+entry_point_name: ''
+experiment_id: '972642677755958166'
+lifecycle_stage: active
+run_id: a9d1568ff5f14790b074c4f0c6e9faeb
+run_name: ARIMA_(2, 1, 2)
+run_uuid: a9d1568ff5f14790b074c4f0c6e9faeb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1734023771405
+status: 3
+tags: []
+user_id: HP

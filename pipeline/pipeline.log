@@ -1,0 +1,5 @@
+2024-12-15 11:58:34,410 INFO:ML model loaded successfully.
+2024-12-15 11:58:35,756 INFO:Prometheus metrics server for analyzer started on port 8002.
+2024-12-15 11:58:35,769 INFO:Total Predictions in the Last Hour: 0
+2024-12-15 11:58:35,773 INFO:No predictions to calculate average accuracy.
+2024-12-15 11:58:35,777 INFO:Total Validation Failures in the Last Hour: 0

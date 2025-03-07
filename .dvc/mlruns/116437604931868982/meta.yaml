@@ -1,0 +1,6 @@
+artifact_location: file:///C:/MLOPS_PROJECT/course-project-AaimlikAbbasi/mlruns/116437604931868982
+creation_time: 1734023794687
+experiment_id: '116437604931868982'
+last_update_time: 1734023794687
+lifecycle_stage: active
+name: LSTM_Hyperparameter_Tuning

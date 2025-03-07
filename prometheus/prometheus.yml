@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'pipeline_metrics'  # Renamed for clarity
+    static_configs:
+      - targets: ['pipeline:8001']  # Updated port to match the metrics endpoint
