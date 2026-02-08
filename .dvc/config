@@ -1,0 +1,6 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = gdrive://1m2CkBdfiU2Wd2LyLD1g4YMcVektS9vCX?usp=drive_link
+    # gdrive_client_id and gdrive_client_secret should be set via environment variables
+    # or in .dvc/config.local (which is gitignored)
