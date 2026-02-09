@@ -55,7 +55,9 @@ Step 7: Enable APIs
 o 	Google Drive API o 	Google OAuth2 API 
 Step 8: Create OAuth 2.0 Credentials 
 1.	Navigate to APIs & Services and click on  Credentials 
-2.	Click Create Credentials navigate to  OAuth Client ID 3. Select Web Application as Application Type 4. Configure settings:  
+2.	Click Create Credentials navigate to  OAuth Client ID
+3.	  Select Web Application as Application Type
+4.	 Configure settings:  
 o	Name: (e.g., DVC Remote OAuth) 
 o	Authorized Redirect URIs: Add http://localhost:8090/ 
 5. Click Create to generate Client ID and Client Secret 
@@ -66,8 +68,9 @@ o	Authorized Redirect URIs: Add http://localhost:8090/
 
 
 After the google cloud set copy the credential client key and secret key and write them below here. 
-	dvc remote modify myremote gdrive_client_id 859645055084gsb9lvq5in1c0nck2dcaqdjqebt9o34s.apps.googleusercontent.com 
-	dvc remote modify myremote gdrive_client_secret GOCSPX-w1Bm5WllWN0b5ywQnzwv7AUC8tw 
+
+*	dvc remote modify myremote gdrive_client_id 859645055084gsb9lvq5in1c0nck2dcaqdjqebt9o34s.apps.googleusercontent.com 
+*	dvc remote modify myremote gdrive_client_secret GOCSPX-w1Bm5WllWN0b5ywQnzwv7AUC8tw 
 
 
 <img width="975" height="76" alt="image" src="https://github.com/user-attachments/assets/b05d8e41-4591-4cf9-9f95-f364fec4512b" />
@@ -117,7 +120,9 @@ o	Actions Tab:
 	Click "New."  	Action: Start a program. 
 	Program/script: Path to Python executable  
 	Add arguments: Full path to collect_data.py  
+
 <img width="900" height="780" alt="image" src="https://github.com/user-attachments/assets/16ecd0b7-f08b-4baa-81e7-a85f46a693f9" />
+
 Action: Start a program. 
 	Program/script: Path to Python executable  
 	Add arguments: Full path to collect_data.py  
@@ -135,6 +140,7 @@ This ensures that new data is integrated into the DVC-managed repository and sto
 Conclusion: 
 This task integrates multiple APIs to collect environmental data, and DVC ensures efficient versioning and storage management. The automation aspect allows for continuous data collection without manual intervention, and the use of remote storage ensures that the data is securely stored and easily accessible for future analysis. 
 Report: Pollution Prediction Model for High-Risk Days 
+
 1. Objective 
 The objective of this project is to develop and deploy models that predict pollution trends (AQI levels) and alert users on high-risk days. The models were trained using environmental data, specifically targeting temperature, and deployed as an API to provide real-time pollution predictions. 
   
@@ -197,6 +203,7 @@ Below show the LSTM model experimentation
 
 Below show the ARIMA model experimentation and value  
 <img width="975" height="439" alt="image" src="https://github.com/user-attachments/assets/425b884f-57dd-4340-a441-e3c2ae1ab355" />
+
 2.4. Hyperparameter Tuning 
 Objective: Optimize models using grid search or random search techniques. 
 •	ARIMA Hyperparameter Tuning: Hyperparameters for ARIMA (p, d, q) were tuned using a grid search approach. The best-performing ARIMA model was selected based on RMSE. 
@@ -220,6 +227,7 @@ Analysis
 •	RMSE: ARIMA (1.3286) is lower than LSTM (1.9480), showing better overall performance by penalizing large errors. 
  
 Final Model Selection: The LSTM model was selected for deployment due to its superior performance in capturing complex patterns and long-term dependencies in the data. 
+
 2.6. Deployment 
 Objective: Deploy the selected model as an API using Flask/FastAPI to allow for real-time predictions. 
 •	API Development: The LSTM model was deployed as an API using FastAPI. The API accepts AQI data as input and returns a predicted AQI value for the next time period. 
@@ -228,6 +236,7 @@ Objective: Deploy the selected model as an API using Flask/FastAPI to allow for 
 <img width="975" height="131" alt="image" src="https://github.com/user-attachments/assets/3f194bee-a6d5-4e5b-a071-edabe1f3d2d9" />
 <img width="975" height="474" alt="image" src="https://github.com/user-attachments/assets/d59c7887-9799-4b72-9d99-b68dafa9dc8d" />
 <img width="975" height="501" alt="image" src="https://github.com/user-attachments/assets/d95d0853-22c1-41a6-b0f1-26124b284e5c" />
+
 3. Conclusion 
 The project successfully developed and deployed a pollution prediction system using machine learning models (ARIMA and LSTM). The LSTM model was found to be the best performer and was deployed as an API for real-time predictions. This system can now predict future AQI values and help provide timely alerts for high-risk pollution days. 
   
@@ -281,6 +290,7 @@ This is the setup for grafana and prometheus  to track the data .
   
 2.2. Test Predictions with Live Data 
 Objective: Continuously fetch data from APIs to validate the deployed model’s accuracy. 
+
 2.2.1. Live Data Fetching 
 To test the accuracy of the deployed model, we continuously fetched live data from an external API and passed it through the model. This ensured that the system was capable of handling real-time data and could make accurate predictions based on fresh inputs. 
 •	Real-time Data Fetching: The API continuously sent requests to the deployed model with new data. 
@@ -299,19 +309,24 @@ Now in grafana open a new dashboard and run the query below this graph can be se
 
 <img width="975" height="490" alt="image" src="https://github.com/user-attachments/assets/912724fa-5cbd-42c4-a497-03bfa2a70b8c" />
 Now save this in json in your local project in data folder .it means that your live data is being tested 
+
 Steps Taken: 
+
 1.	A script was developed to fetch data from the API at regular intervals. 
 2.	The model predictions were logged and compared to actual values to assess performance. 
 3.	Metrics such as prediction accuracy and error rates were logged for continuous monitoring
   
 2.3. Analyze and Optimize 
+
 Objective: Analyze system performance and refine models or data pipelines as necessary. 
+
 2.3.1. System Performance Analysis 
 Using the Grafana dashboard and Prometheus metrics, the system's performance was continuously monitored. The following aspects were analyzed: 
 •	API Response Time: Monitoring the API response time to ensure it remains within acceptable limits. 
 •	Prediction Accuracy: Tracking the accuracy of the model and ensuring that it meets predefined thresholds. 
 . 
 2.3.2. Optimizations Made 
+
 After analyzing the performance, several optimizations were made: 
 1. API Optimization: Reduced the latency by optimizing the API code and using more efficient data processing methods. 
 <img width="975" height="556" alt="image" src="https://github.com/user-attachments/assets/eeb2061d-fbe3-49eb-a088-e2eb490ecf68" />
