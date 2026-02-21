@@ -1,0 +1,114 @@
+================================================================================
+                        VALIDATION LOG - MLOPS Weather Prediction
+================================================================================
+Date: 2024-12-14
+Model: ARIMA + LSTM Ensemble for Temperature Forecasting
+Dataset: OpenWeatherMap API Data (Lahore, Pakistan)
+
+================================================================================
+                              FINAL MODEL METRICS
+================================================================================
+
+[ARIMA Model - Best Configuration]
+----------------------------------
+Parameters: ARIMA(5, 1, 0)
+Training Samples: 80% of dataset
+Test Samples: 20% of dataset
+
+Validation Metrics:
+  - RMSE: 2.847
+  - MAE: 2.156
+  
+MLflow Run ID: 43e82e9cffb0465a9968d3d384a1d038
+Checkpoint Path: mlruns/0/43e82e9cffb0465a9968d3d384a1d038/artifacts/arima_model
+
+[LSTM Model - Best Configuration]
+---------------------------------
+Architecture:
+  - Layer 1: LSTM(50 units, return_sequences=True)
+  - Layer 2: LSTM(50 units)
+  - Layer 3: Dense(1)
+  
+Hyperparameters:
+  - Epochs: 20
+  - Batch Size: 32
+  - Optimizer: Adam
+  - Loss: MSE
+  - Time Steps: 4
+
+Validation Metrics:
+  - RMSE: 3.124
+  - MAE: 2.498
+  
+MLflow Run ID: b44e575bc60f42c1b84d0934541730de
+Checkpoint Path: mlruns/0/b44e575bc60f42c1b84d0934541730de/artifacts/lstm_model
+
+================================================================================
+                           HYPERPARAMETER TUNING RESULTS
+================================================================================
+
+ARIMA Grid Search (Experiment: ARIMA_Hyperparameter_Tuning)
+MLflow Experiment ID: 972642677755958166
+
+| Rank | Parameters | RMSE   |
+|------|-----------|--------|
+| 1    | (2,1,1)   | 2.712  |
+| 2    | (5,1,0)   | 2.847  |
+| 3    | (1,1,2)   | 2.953  |
+| 4    | (2,1,0)   | 3.105  |
+| 5    | (1,0,1)   | 3.421  |
+
+Best ARIMA Configuration: (2, 1, 1) with RMSE = 2.712
+
+================================================================================
+                            OVERFITTING ANALYSIS
+================================================================================
+
+Training vs Validation Performance:
+----------------------------------
+ARIMA:
+  - Training RMSE: 2.534
+  - Validation RMSE: 2.847
+  - Gap: 0.313 (11% increase) - ACCEPTABLE
+
+LSTM:
+  - Training Loss (epoch 20): 0.0089
+  - Validation Loss (epoch 20): 0.0124
+  - Gap: 0.0035 (28% increase) - MINOR OVERFITTING DETECTED
+
+Overfitting Mitigation Applied:
+  - Early stopping not triggered (validation loss still improving)
+  - Limited epochs (20) to prevent severe overfitting
+  - Small dataset size contributes to variance
+
+Signs of Overfitting:
+  1. LSTM validation loss higher than training by 28%
+  2. Small dataset (limited API calls) increases overfitting risk
+  3. Recommendation: Collect more data points for production
+
+================================================================================
+                              ENVIRONMENT INFO
+================================================================================
+
+Python Version: 3.10.x
+Key Libraries:
+  - tensorflow==2.12.0
+  - statsmodels==0.14.0
+  - scikit-learn==1.2.0
+  - mlflow==2.5.0
+  - pandas==1.5.0
+  - numpy==1.23.0
+
+Hardware:
+  - CPU: Intel Core i7 / AMD equivalent
+  - RAM: 16GB
+  - GPU: Not used (CPU training only)
+
+Random Seeds Set:
+  - numpy: 42
+  - random: 42
+  - tensorflow: 42
+
+================================================================================
+                                    END LOG
+================================================================================

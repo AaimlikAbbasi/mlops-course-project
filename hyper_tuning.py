@@ -1,9 +1,21 @@
 import pandas as pd
 import numpy as np
+import random
 from statsmodels.tsa.arima.model import ARIMA
 from sklearn.metrics import mean_squared_error
 import mlflow
 import mlflow.statsmodels
+
+# ============================================
+# REPRODUCIBILITY: Set random seeds
+# ============================================
+SEED = 42
+np.random.seed(SEED)
+random.seed(SEED)
+
+# Note: TensorFlow seeds are set in LSTM section below
+# Remaining nondeterminism: ARIMA optimization uses numerical solvers 
+# that may have slight variations across different hardware/BLAS implementations
 
 # Load cleaned data from JSON
 data = pd.read_json('data/cleaned_weather_data.json', lines=True)
@@ -70,6 +82,7 @@ print(f"Best ARIMA{best_cfg} RMSE={best_score}")
 
 import pandas as pd
 import numpy as np
+import random
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.preprocessing import MinMaxScaler
 import tensorflow as tf
@@ -78,6 +91,14 @@ from tensorflow.keras.layers import LSTM, Dense
 import mlflow
 import mlflow.tensorflow
 import matplotlib.pyplot as plt
+
+# ============================================
+# REPRODUCIBILITY: Set seeds for LSTM/TensorFlow
+# ============================================
+SEED = 42
+np.random.seed(SEED)
+random.seed(SEED)
+tf.random.set_seed(SEED)
 
 # Load cleaned data from JSON
 data = pd.read_json('data/cleaned_weather_data.json', lines=True)

@@ -1,5 +1,6 @@
 import mlflow
 import joblib
+import random
 # Set the tracking URI to a local directory
 mlflow.set_tracking_uri("file:///C:/MLOPS_PROJECT/course-project-AaimlikAbbasi/mlruns")
 import pandas as pd
@@ -9,6 +10,13 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 import mlflow
 import mlflow.statsmodels
 import matplotlib.pyplot as plt
+
+# ============================================
+# REPRODUCIBILITY: Set random seeds
+# ============================================
+SEED = 42
+np.random.seed(SEED)
+random.seed(SEED)
 
 # Load cleaned data
 data = pd.read_json('data/cleaned_weather_data.json', lines=True)
